@@ -1,17 +1,13 @@
-import {View, Text, Button} from 'react-native';
 import React from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import {Text, View} from 'react-native';
+import {ButtonComponent} from '../../components';
+import {globalStyles} from '../../styles/globalStyles';
 
 const LoginScreen = () => {
   return (
-    <View>
+    <View style={[globalStyles.container]}>
       <Text>LoginScreen</Text>
-      <Button
-        title="Login"
-        onPress={async () =>
-          await AsyncStorage.setItem('accessToken', '131231')
-        }
-      />
+      <ButtonComponent text="Login" type="primary" />
     </View>
   );
 };

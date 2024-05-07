@@ -5,7 +5,10 @@ import {HomeScreen} from '../screens';
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
       <Tab.Screen name="HomeScreen" component={HomeScreen} />
     </Tab.Navigator>
   );

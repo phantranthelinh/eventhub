@@ -3,19 +3,33 @@ import AuthNavigator from './src/navigations/AuthNavigator';
 import {SplashScreen} from './src/screens';
 import {NavigationContainer} from '@react-navigation/native';
 import {StatusBar} from 'react-native';
-const TIME = 2000;
+import {useAsyncStorage} from '@react-native-async-storage/async-storage';
+import MainNavigator from './src/navigations/MainNavigator';
+const TIME = 1500;
 const App = () => {
+  //*STATES
   const [isShowSplashScreen, setIsShowSplashScreen] = useState(true);
+  const [accessToken, setAccessToken] = useState('');
+
+  //*CONTANTS
+  const {getItem} = useAsyncStorage('accsessToken');
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsShowSplashScreen(false);
     }, TIME);
 
+    checkLogin();
     return () => {
       clearTimeout(timer);
     };
   }, []);
+
+  const checkLogin = async () => {
+    const token = await getItem();
+    console.log("🚀 ~ token:", token)
+    token && setAccessToken(token);
+  };
 
   return (
     <>
@@ -24,11 +38,11 @@ const App = () => {
         translucent
         backgroundColor="transparent"
       />
-      {!isShowSplashScreen ? (
+      {isShowSplashScreen ? (
         <SplashScreen />
       ) : (
         <NavigationContainer>
-          <AuthNavigator />
+          {accessToken ? <MainNavigator /> : <AuthNavigator />}
         </NavigationContainer>
       )}
     </>

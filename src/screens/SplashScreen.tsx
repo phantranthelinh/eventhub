@@ -5,9 +5,9 @@ import {
   ImageBackground,
   StyleSheet,
 } from 'react-native';
-import {info} from '../constants/info';
-import {SpaceComponent} from '../components';
-import {colors} from '../constants/theme';
+import { SpaceComponent } from '../components';
+import { info } from '../constants/info';
+import { colors } from '../constants/theme';
 
 const SplashScreen = () => {
   return (

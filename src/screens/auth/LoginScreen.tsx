@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import {ButtonComponent} from '../../components';
+import {ButtonComponent, InputComponent} from '../../components';
 import {globalStyles} from '../../styles/globalStyles';
 
 const LoginScreen = () => {
@@ -8,6 +8,7 @@ const LoginScreen = () => {
     <View style={[globalStyles.container]}>
       <Text>LoginScreen</Text>
       <ButtonComponent text="Login" type="primary" />
+      <InputComponent />
     </View>
   );
 };

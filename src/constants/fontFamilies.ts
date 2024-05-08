@@ -1,4 +1,4 @@
-export const fontFamily = {
+export const fontFamilies = {
   regular: 'AirbnbCereal_W_Lt',
   bold: 'AirbnbCereal_W_Bd',
   medium: 'AirbnbCereal_W_Md',

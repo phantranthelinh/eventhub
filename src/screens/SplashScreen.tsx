@@ -5,9 +5,8 @@ import {
   ImageBackground,
   StyleSheet,
 } from 'react-native';
-import { SpaceComponent } from '../components';
-import { info } from '../constants/info';
-import { colors } from '../constants/theme';
+import {SpaceComponent} from '../components';
+import {appColors, appInfo} from '../constants';
 
 const SplashScreen = () => {
   return (
@@ -20,12 +19,12 @@ const SplashScreen = () => {
       <Image
         source={require('../assets/images/logo.png')}
         style={{
-          width: info.sizes.WIDTH * 0.7,
+          width: appInfo.sizes.WIDTH * 0.7,
           resizeMode: 'contain',
         }}
       />
       <SpaceComponent height={16} />
-      <ActivityIndicator color={colors.gray} size={22} />
+      <ActivityIndicator color={appColors.gray} size={22} />
     </ImageBackground>
   );
 };

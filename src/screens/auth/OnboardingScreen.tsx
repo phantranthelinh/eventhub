@@ -2,10 +2,9 @@ import React, {useState} from 'react';
 import {Image, TouchableOpacity, View} from 'react-native';
 import Swiper from 'react-native-swiper';
 import {TextComponent} from '../../components';
-import {info} from '../../constants/info';
-import {colors} from '../../constants/theme';
 import {globalStyles} from '../../styles/globalStyles';
-import {fontFamily} from '../../constants/fontFamily';
+import {fontFamilies} from '../../constants/fontFamilies';
+import {appColors, appInfo} from '../../constants';
 
 const OnboardingScreen = ({navigation}: any) => {
   const [index, setIndex] = useState(0);
@@ -13,31 +12,31 @@ const OnboardingScreen = ({navigation}: any) => {
     <View style={[globalStyles.container]}>
       <Swiper
         loop={false}
-        activeDotColor={colors.white}
+        activeDotColor={appColors.white}
         index={index}
         onIndexChanged={num => setIndex(num)}>
         <Image
           source={require('../../assets/images/onboarding-1.png')}
           style={{
             flex: 1,
-            width: info.sizes.WIDTH,
-            height: info.sizes.HEIGHT,
+            width: appInfo.sizes.WIDTH,
+            height: appInfo.sizes.HEIGHT,
           }}
         />
         <Image
           source={require('../../assets/images/onboarding-2.png')}
           style={{
             flex: 1,
-            width: info.sizes.WIDTH,
-            height: info.sizes.HEIGHT,
+            width: appInfo.sizes.WIDTH,
+            height: appInfo.sizes.HEIGHT,
           }}
         />
         <Image
           source={require('../../assets/images/onboarding-3.png')}
           style={{
             flex: 1,
-            width: info.sizes.WIDTH,
-            height: info.sizes.HEIGHT,
+            width: appInfo.sizes.WIDTH,
+            height: appInfo.sizes.HEIGHT,
           }}
         />
       </Swiper>
@@ -57,8 +56,8 @@ const OnboardingScreen = ({navigation}: any) => {
           <TextComponent
             text="Skip"
             size={16}
-            color={colors.white}
-            font={fontFamily.medium}
+            color={appColors.white}
+            font={fontFamilies.medium}
           />
         </TouchableOpacity>
         <TouchableOpacity
@@ -68,8 +67,8 @@ const OnboardingScreen = ({navigation}: any) => {
           <TextComponent
             text="Next"
             size={16}
-            color={colors.white}
-            font={fontFamily.medium}
+            color={appColors.white}
+            font={fontFamilies.medium}
           />
         </TouchableOpacity>
       </View>

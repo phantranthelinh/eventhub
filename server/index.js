@@ -1,17 +1,14 @@
 const express = require("express")
 const cors = require("cors")
 const app = express()
+const authRouter = require("./routers/auth")
+
 
 
 app.use(cors())
 
 
-
-app.get("/hello", (req, res) => {
-    res.send("<h1>Hello</h1>")
-})
-
-
+app.use("/auth", authRouter)
 
 
 const PORT = 3000

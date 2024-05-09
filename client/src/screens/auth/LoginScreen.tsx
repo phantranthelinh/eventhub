@@ -13,7 +13,7 @@ import ContainerComponent from '../../components/ContainerComponent';
 import {appColors, fontFamilies} from '../../constants';
 import SocialLogin from './components/SocialLogin';
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}: any) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isRemember, setIsRemember] = useState(false);
@@ -23,7 +23,6 @@ const LoginScreen = () => {
         styles={{
           justifyContent: 'center',
           alignItems: 'center',
-          marginTop: 73,
         }}>
         <Image
           source={require('../../assets/images/text-logo.png')}
@@ -70,18 +69,33 @@ const LoginScreen = () => {
             <SpaceComponent width={8.7} />
             <TextComponent text="Remember me" size={14} />
           </RowComponent>
-          <ButtonComponent text="Forgot password?" type="text" />
+          <ButtonComponent
+            text="Forgot password?"
+            type="text"
+            onPress={() => navigation.navigate('ForgotPasswordScreen')}
+          />
         </RowComponent>
       </SectionComponent>
       <SpaceComponent height={16} />
       <SectionComponent>
-        <ButtonComponent text="SIGN IN" type="primary" size={16} />
+        <ButtonComponent
+          text="SIGN IN"
+          type="primary"
+          size={16}
+          font={fontFamilies.medium}
+        />
       </SectionComponent>
       <SocialLogin />
+
       <SectionComponent>
         <RowComponent justify="center">
           <TextComponent text="Don't have an account? " size={15} />
-          <ButtonComponent text="Sign up" type="link" size={15} />
+          <ButtonComponent
+            text="Sign up"
+            type="link"
+            size={15}
+            onPress={() => navigation.navigate('SignUpScreen')}
+          />
         </RowComponent>
       </SectionComponent>
     </ContainerComponent>

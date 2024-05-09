@@ -1,5 +1,11 @@
 import React, {ReactNode} from 'react';
-import {StyleProp, TextStyle, TouchableOpacity, ViewStyle} from 'react-native';
+import {
+  StyleProp,
+  TextStyle,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from 'react-native';
 import TextComponent from './TextComponent';
 import {globalStyles} from '../styles/globalStyles';
 import {fontFamilies} from '../constants/fontFamilies';
@@ -36,31 +42,39 @@ const ButtonComponent = (props: Props) => {
   return (
     <>
       {type === 'primary' ? (
-        <TouchableOpacity
-          style={[
-            globalStyles.button,
-            {
-              backgroundColor: color ?? appColors.primary,
-            },
-            styles,
-          ]}
-          onPress={onPress}>
-          {icon && icon}
-          <TextComponent
-            text={text}
-            color={textColor ?? appColors.white}
-            styles={[
-              textStyles,
+        <View
+          style={{
+            alignItems: 'center',
+          }}>
+          <TouchableOpacity
+            style={[
+              globalStyles.button,
+              globalStyles.shadow,
+
               {
-                marginLeft: icon ? 12 : 0,
-                // flex: icon && iconFlex === 'right' ? 1 : 0,
+                backgroundColor: color ?? appColors.primary,
+                width: '90%',
               },
+              styles,
             ]}
-            font={font ? font : fontFamilies.regular}
-            size={size ?? 14}
-          />
-          {icon && iconFlex === 'right' && icon}
-        </TouchableOpacity>
+            onPress={onPress}>
+            {icon && icon}
+            <TextComponent
+              text={text}
+              color={textColor ?? appColors.white}
+              styles={[
+                textStyles,
+                {
+                  marginLeft: icon ? 12 : 0,
+                  // flex: icon && iconFlex === 'right' ? 1 : 0,
+                },
+              ]}
+              font={font ? font : fontFamilies.regular}
+              size={size ?? 14}
+            />
+            {icon && iconFlex === 'right' && icon}
+          </TouchableOpacity>
+        </View>
       ) : (
         <TouchableOpacity onPress={onPress}>
           <TextComponent

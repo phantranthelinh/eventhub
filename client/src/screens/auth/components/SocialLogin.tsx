@@ -6,7 +6,7 @@ import {
   TextComponent,
 } from '../../../components';
 import {appColors, fontFamilies} from '../../../constants';
-import {Google} from 'iconsax-react-native';
+import {FacebookSvg, GoogleSvg} from '../../../assets/svgs';
 
 const SocialLogin = () => {
   return (
@@ -21,23 +21,29 @@ const SocialLogin = () => {
       </RowComponent>
       <ButtonComponent
         type="primary"
+        styles={{
+          borderRadius: 12,
+          marginBottom: 12,
+          gap: 6,
+        }}
         text="Login with Google"
         size={16}
         textColor={appColors.text}
         color={appColors.white}
-        icon={<Google size={24} color={appColors.primary} />}
+        icon={<GoogleSvg />}
         iconFlex="left"
       />
       <ButtonComponent
-      styles={{
-        borderRadius: 
-      }}
+        styles={{
+          borderRadius: 12,
+          gap: 6,
+        }}
         type="primary"
         text="Login with Facebook"
         size={16}
         textColor={appColors.text}
         color={appColors.white}
-        icon={<Google size={24} color={appColors.primary} />}
+        icon={<FacebookSvg />}
         iconFlex="left"
       />
     </SectionComponent>

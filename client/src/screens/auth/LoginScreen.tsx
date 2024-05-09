@@ -12,11 +12,19 @@ import {
 import ContainerComponent from '../../components/ContainerComponent';
 import {appColors, fontFamilies} from '../../constants';
 import SocialLogin from './components/SocialLogin';
+import AuthAPI from '../../apis/authApi';
 
 const LoginScreen = ({navigation}: any) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isRemember, setIsRemember] = useState(false);
+
+  const handleLogin = async () => {
+    try {
+    } catch (err) {}
+    const data = await AuthAPI.login('/hello');
+    console.log(data);
+  };
   return (
     <ContainerComponent isImageBackground isScrollable>
       <SectionComponent
@@ -79,6 +87,7 @@ const LoginScreen = ({navigation}: any) => {
       <SpaceComponent height={16} />
       <SectionComponent>
         <ButtonComponent
+          onPress={handleLogin}
           text="SIGN IN"
           type="primary"
           size={16}

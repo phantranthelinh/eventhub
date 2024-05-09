@@ -23,4 +23,13 @@ export const globalStyles = StyleSheet.create({
     fontSize: 14,
     color: appColors.text,
   },
+  section: {
+    paddingHorizontal: 16,
+    paddingBottom: 20,
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
 });

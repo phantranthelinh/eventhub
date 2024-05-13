@@ -46,6 +46,7 @@ const InputComponent = (props: Props) => {
         style={[styles.input]}
         placeholderTextColor={'#747688'}
         keyboardType={type}
+        autoCapitalize="none"
       />
       {suffix ?? suffix}
       <TouchableOpacity

@@ -66,7 +66,6 @@ const ButtonComponent = (props: Props) => {
                 textStyles,
                 {
                   marginLeft: icon ? 12 : 0,
-                  // flex: icon && iconFlex === 'right' ? 1 : 0,
                 },
               ]}
               font={font ? font : fontFamilies.regular}

@@ -1,16 +1,18 @@
 import axiosClient from './axiosClient';
 
-const AuthAPI = {
-  login: async (
+class AuthAPI {
+  HandleAuthentication = async (
     url: string,
     data?: any,
-    method?: 'get' | 'post' | 'delete' | 'put' | 'patch',
+    method?: 'get' | 'post' | 'put' | 'delete',
   ) => {
-    return await axiosClient(`${url}`, {
+
+    return await axiosClient(`/auth${url}`, {
       method: method ?? 'get',
       data,
     });
-  },
-};
+  };
+}
 
-export default AuthAPI;
+const authenticationAPI = new AuthAPI();
+export default authenticationAPI;

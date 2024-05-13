@@ -1,4 +1,5 @@
 const express = require('express')
+const AuthController = require('../controllers/AuthController')
 const router = express.Router()
 // middleware that is specific to this router
 const timeLog = (req, res, next) => {
@@ -7,13 +8,6 @@ const timeLog = (req, res, next) => {
 }
 router.use(timeLog)
 
-// define the home page route
-router.get('/', (req, res) => {
-    res.send('Birds home page')
-})
-// define the about route
-router.get('/about', (req, res) => {
-    res.send('About birds')
-})
+router.post("/register", AuthController.register)
 
 module.exports = router

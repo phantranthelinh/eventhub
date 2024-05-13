@@ -14,6 +14,8 @@ import SocialLogin from './components/SocialLogin';
 import {LoadingModal} from '../../modals';
 import authenticationAPI from '../../apis/authApi';
 import {Validate} from '../../utils/validate';
+import {useDispatch} from 'react-redux';
+import {addAuth} from '../../redux/reducers/authReducer';
 
 type FormStateType = {
   fullName: string;
@@ -35,6 +37,7 @@ const SignUpScreen = ({navigation}: any) => {
   const handleChangeInput = (name: string, value: string) => {
     setFormState(prevState => ({...prevState, [name]: value}));
   };
+  const dispatch = useDispatch();
 
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -48,12 +51,12 @@ const SignUpScreen = ({navigation}: any) => {
         setLoading(true);
         setErrorMessage('');
         try {
-          const response = await authenticationAPI.HandleAuthentication(
+          const res = await authenticationAPI.HandleAuthentication(
             '/register',
             {email, password},
             'post',
           );
-
+          dispatch(addAuth(res.data));
           setLoading(false);
         } catch (err) {
           console.log(err);

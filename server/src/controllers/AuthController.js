@@ -41,11 +41,12 @@ const AuthController = {
         })
 
         await newUser.save()
-
         res.status(200).json({
             message: "Register user successfully",
             data: {
-                ...newUser,
+                email: newUser.email,
+                fullName: newUser.fullName,
+                id: newUser._id,
                 accessToken: await getJsonWebToken(email, newUser?._id)
             }
         })
